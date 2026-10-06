@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# PlatformIO
+.pio/
+
+# VS Code local settings
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated data
+data/raw/*.csv
+data/processed/*.csv
