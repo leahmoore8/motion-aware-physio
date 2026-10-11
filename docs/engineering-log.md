@@ -182,3 +182,45 @@ across different heart rates, motion frequencies, and PPG artifact amplitudes.
 - Investigate motion-related spectral overlap
 - Reduce false positives without increasing false negatives
 - Evaluate across additional synthetic conditions
+
+## 2026-10-11 — Combined PPG + IMU Quality Assessment
+
+### Objective
+Determine whether combining PPG spectral features with IMU measurements
+reduces unnecessary rejection of accurate heart-rate estimates.
+
+### Implementation
+- Extracted dominant PPG frequency using FFT
+- Estimated dominant motion frequency from combined accelerometer-axis spectra
+- Calculated PPG spectral energy near the estimated motion frequency
+- Implemented combined motion and spectral-overlap detector
+- Compared against the original motion-only detector across five synthetic datasets
+
+### Results
+| Metric | Motion-only | Combined |
+|---|---:|---:|
+| Incorrect estimates detected | 84/84 | 84/84 |
+| False positives | 56 | 28 |
+| False negatives | 0 | 0 |
+| Precision | 60% | 75% |
+| Recall | 100% | 100% |
+| Overall retention | 50% | 60% |
+
+- Eliminated all 28 false positives in the low-artifact test
+- Preserved detection of incorrect HR estimates in the baseline,
+  high-HR, and fast-motion tests
+- Motion-near-HR condition still produced 28 false positives
+
+### Limitations
+- Results are from five synthetic development datasets
+- Thresholds have not been independently validated
+- Overlapping windows are not statistically independent
+- Five-second FFT resolution limits separation of nearby frequencies
+- Frequency agreement does not prove motion contamination
+- Current evaluation measures HR accuracy rather than waveform quality
+
+### Next Steps
+- Evaluate unchanged detector thresholds on held-out synthetic recordings
+- Investigate HR continuity and additional signal-quality features
+- Test irregular motion and varying heart rates
+- Validate with physical sensors

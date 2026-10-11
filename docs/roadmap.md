@@ -234,9 +234,19 @@ PPG behavior under different motion conditions.
 - [ ] Investigate threshold selection and generalization
 - [ ] Validate algorithm using physical sensor recordings
 
+### Combined PPG + IMU Signal-Quality Assessment
+- [x] Extract PPG spectral features
+- [x] Estimate dominant IMU motion frequency
+- [x] Compare PPG and IMU frequency content
+- [ ] Investigate temporal HR consistency
+- [x] Develop combined PPG + IMU quality score
+- [x] Compare combined detector against motion-only baseline
+- [ ] Evaluate on held-out synthetic test conditions
+
 ### Documentation
 - [x] Document initial algorithm results and limitations
 - [x] Document multi-condition evaluation and final algorithm performance
+- [x] Document initial combined-detector results and limitations
 - [ ] Commit and push completed M8
 
 **Deliverable:** Motion-aware algorithm that identifies potentially unreliable physiological measurements.
