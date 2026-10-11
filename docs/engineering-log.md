@@ -141,3 +141,44 @@ PPG-derived heart-rate estimates.
 - Evaluate false positives and false negatives across recordings
 - Investigate motion artifact reduction
 - Validate with physical PPG and IMU sensors
+
+## 2026-10-11 — Multi-Condition Synthetic Evaluation
+
+### Objective
+Evaluate whether the initial IMU-based motion detector generalizes
+across different heart rates, motion frequencies, and PPG artifact amplitudes.
+
+### Implementation
+- Generated five 60-second synthetic PPG/IMU recordings at 50 Hz
+- Varied simulated HR, motion frequency, and artifact amplitude
+- Evaluated 5-second FFT windows with 1-second steps
+- Kept the IMU motion threshold fixed at 0.06 g
+- Defined incorrect HR estimates as errors greater than 12 BPM
+
+### Results
+| Test | Baseline MAE | Accepted MAE | False Positives |
+|---|---:|---:|---:|
+| Baseline | 24.00 BPM | 0.00 BPM | 0 |
+| Low motion artifact | 0.00 BPM | 0.00 BPM | 28 |
+| Higher HR | 12.00 BPM | 0.00 BPM | 0 |
+| Motion near HR | 6.00 BPM | 6.00 BPM | 28 |
+| Faster motion | 36.86 BPM | 0.00 BPM | 0 |
+
+- Detector retained 50% of HR estimates in every test
+- All estimates classified as incorrect were successfully flagged
+- Detector unnecessarily rejected accurate estimates in two conditions
+- Results demonstrate limitations of using IMU motion intensity alone
+
+### Limitations
+- Synthetic signals use simplified sinusoidal PPG and motion models
+- Five test conditions share the same repeating motion schedule
+- Motion intensity and PPG artifact amplitude are not always correlated
+- Overlapping FFT windows are not independent observations
+- Incorrect HR threshold (>12 BPM) may miss smaller but meaningful errors
+- Results do not establish performance on real physiological recordings
+
+### Next Steps
+- Develop combined PPG and IMU frequency-domain features
+- Investigate motion-related spectral overlap
+- Reduce false positives without increasing false negatives
+- Evaluate across additional synthetic conditions

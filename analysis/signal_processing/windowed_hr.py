@@ -17,7 +17,7 @@ STEP_SECONDS = 1
 EXPECTED_HR = 72
 
 
-def analyze_windows(df):
+def analyze_windows(df, expected_hr=72):
     time_s = df["timestamp_ms"].to_numpy() / 1000
     ppg = df["ppg_ir"].to_numpy()
 
@@ -53,7 +53,7 @@ def analyze_windows(df):
             "time_s": center_time - time_s[0],
             "hr_bpm": hr,
             "motion_score": motion_score,
-            "error_bpm": abs(hr - EXPECTED_HR),
+            "error_bpm": abs(hr - expected_hr),
         })
 
     return pd.DataFrame(results)

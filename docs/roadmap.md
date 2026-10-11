@@ -227,15 +227,16 @@ PPG behavior under different motion conditions.
 - [ ] Develop additional motion-related features
 - [ ] Define GOOD / MODERATE / POOR quality categories
 - [ ] Establish an evaluation protocol with labeled examples
-- [ ] Generate synthetic datasets with varying HR, motion frequency, and artifact amplitude
-- [ ] Evaluate performance across multiple synthetic conditions using a fixed threshold
+- [x] Generate synthetic datasets with varying HR, motion frequency, and artifact amplitude
+- [x] Evaluate performance across multiple synthetic conditions using a fixed threshold
+- [x] Evaluate false positives and false negatives on synthetic recordings
 - [ ] Compare PPG-only and motion-aware approaches
 - [ ] Investigate threshold selection and generalization
 - [ ] Validate algorithm using physical sensor recordings
 
 ### Documentation
 - [x] Document initial algorithm results and limitations
-- [ ] Document multi-condition evaluation and final algorithm performance
+- [x] Document multi-condition evaluation and final algorithm performance
 - [ ] Commit and push completed M8
 
 **Deliverable:** Motion-aware algorithm that identifies potentially unreliable physiological measurements.
