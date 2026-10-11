@@ -27,8 +27,8 @@ successful firmware execution.
 - [x] Compile initial firmware
 - [x] Upload firmware to ESP32-S3
 - [x] Verify USB serial communication at 115200 baud
-- [ ] Document M0 in engineering log
-- [ ] Commit and push M0
+- [x] Document M0 in engineering log
+- [x] Commit and push M0
 
 **Deliverable:** ESP32-S3 successfully executes firmware and
 transmits periodic status messages over USB serial.
@@ -111,12 +111,12 @@ motion measurements in a consistent format.
 
 **Goal:** Receive and store sensor data on Mac.
 
-- [ ] Create Python virtual environment
-- [ ] Add dependencies to `analysis/requirements.txt`
-- [ ] Implement serial communication using `pyserial`
-- [ ] Parse ESP32 data stream
-- [ ] Validate incoming measurements
-- [ ] Save timestamped measurements to CSV
+- [x] Create Python virtual environment
+- [x] Add dependencies to `analysis/requirements.txt`
+- [x] Implement serial communication using `pyserial`
+- [x] Parse ESP32 data stream
+- [x] Validate incoming measurements
+- [x] Save timestamped measurements to CSV
 - [ ] Handle serial disconnects and malformed packets
 - [ ] Verify recorded data integrity
 - [ ] Document acquisition workflow

@@ -48,3 +48,34 @@ successful firmware execution and USB serial communication.
 - M1: MPU6050 sensor bring-up
 - Establish I2C communication
 - Acquire accelerometer and gyroscope measurements
+
+## 2026-10-11 — Synthetic Data Acquisition
+
+### Objective
+Develop and validate the serial acquisition pipeline before
+integrating the physical PPG and IMU sensors.
+
+### Implementation
+- Generated synthetic PPG and IMU measurements on ESP32-S3
+- Configured nominal sampling rate of 50 Hz
+- Implemented comma-separated serial data transmission
+- Developed Python acquisition script using pyserial
+- Added CSV logging and basic input validation
+
+### Data Format
+timestamp_ms,ppg_ir,ppg_red,ax,ay,az,gx,gy,gz
+
+### Test Results
+- Recording duration: 31.64s
+- Samples recorded: 1583
+- Measured average sample rate: 50.00 Hz
+- CSV successfully generated: [Yes]
+
+### Notes
+Synthetic data was used to validate the acquisition pipeline.
+No physical sensor measurements were collected.
+
+### Next Steps
+- Implement waveform visualization
+- Integrate physical MPU6050 and MAX30102 sensors
+- Evaluate sensor sampling and synchronization
