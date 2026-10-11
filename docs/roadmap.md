@@ -179,45 +179,66 @@ PPG behavior under different motion conditions.
 
 ## M7 — Digital Signal Processing
 
-**Goal:** Extract useful physiological features and investigate
-motion artifacts.
+**Goal:** Extract useful physiological features and investigate motion artifacts.
 
-- [ ] Inspect PPG signal frequency content
+### Frequency Analysis & Heart-Rate Estimation
+- [x] Inspect PPG signal frequency content using FFT
+- [x] Implement baseline FFT-based heart-rate estimation
+- [x] Implement sliding-window HR estimation (5 s windows, 1 s steps)
+- [x] Compare HR estimates across synthetic stationary and moving intervals
 - [ ] Estimate baseline noise and signal variability
 - [ ] Implement PPG filtering
 - [ ] Detect candidate pulse peaks
-- [ ] Estimate heart rate from PPG
-- [ ] Compare pulse detection across movement conditions
-- [ ] Extract IMU motion features
-- [ ] Quantify relationships between motion and PPG distortion
-- [ ] Compare raw and processed waveforms
-- [ ] Document DSP methods and results
-- [ ] Commit and push M7
+- [ ] Compare FFT-based and peak-based HR estimation
 
-**Deliverable:** Signal-processing pipeline with physiological
-and motion-derived features.
+### Motion & Signal Processing
+- [x] Extract initial IMU motion feature (acceleration magnitude variability)
+- [x] Identify motion-related frequency components in synthetic PPG
+- [x] Quantify HR estimation error during simulated movement
+- [ ] Compare pulse detection across movement conditions
+- [ ] Investigate frequency-domain motion artifact reduction
+- [ ] Compare raw and processed waveforms
+- [ ] Validate DSP pipeline with physical sensor data
+
+### Documentation
+- [x] Document initial synthetic FFT and HR estimation results
+- [ ] Document filtering, peak detection, and final DSP results
+- [ ] Commit and push completed M7
+
+**Deliverable:** Signal-processing pipeline with physiological and motion-derived features.
 
 ---
 
 ## M8 — Motion-Aware Signal Quality Assessment
 
-**Goal:** Develop an algorithm that evaluates PPG reliability
-using physiological and motion measurements.
+**Goal:** Develop an algorithm that evaluates PPG reliability using physiological and motion measurements.
 
-- [ ] Define signal-quality criteria
+### Initial Motion-Aware Algorithm
+- [x] Develop initial IMU motion feature (standard deviation of acceleration magnitude)
+- [x] Implement threshold-based motion reliability flagging
+- [x] Visualize accepted and flagged HR estimates over time
+- [x] Compare flagged estimates against known synthetic HR ground truth
+- [x] Calculate initial accepted and flagged HR estimation errors
+- [x] Evaluate false positives and false negatives on initial synthetic recording
+
+### Algorithm Development & Evaluation
+- [ ] Define broader signal-quality criteria
 - [ ] Design baseline PPG-only quality assessment
-- [ ] Develop motion-related features
-- [ ] Implement motion-aware quality assessment
+- [ ] Develop additional motion-related features
 - [ ] Define GOOD / MODERATE / POOR quality categories
 - [ ] Establish an evaluation protocol with labeled examples
+- [ ] Generate synthetic datasets with varying HR, motion frequency, and artifact amplitude
+- [ ] Evaluate performance across multiple synthetic conditions using a fixed threshold
 - [ ] Compare PPG-only and motion-aware approaches
-- [ ] Evaluate false positives and false negatives
-- [ ] Visualize predicted quality over time
-- [ ] Document algorithm limitations
-- [ ] Commit and push M8
+- [ ] Investigate threshold selection and generalization
+- [ ] Validate algorithm using physical sensor recordings
 
-**Deliverable:** Motion-aware algorithm that identifies
-potentially unreliable physiological measurements.
+### Documentation
+- [x] Document initial algorithm results and limitations
+- [ ] Document multi-condition evaluation and final algorithm performance
+- [ ] Commit and push completed M8
+
+**Deliverable:** Motion-aware algorithm that identifies potentially unreliable physiological measurements.
 
 ---
 
