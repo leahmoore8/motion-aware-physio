@@ -79,3 +79,25 @@ No physical sensor measurements were collected.
 - Implement waveform visualization
 - Integrate physical MPU6050 and MAX30102 sensors
 - Evaluate sensor sampling and synchronization
+
+## 2026-10-11 — M5: Synthetic Signal Visualization
+
+### Objective
+Visualize synchronized synthetic PPG and IMU measurements and
+examine the relationship between movement and PPG distortion.
+
+### Implementation
+- Developed offline visualization scripts using pandas, NumPy, and Matplotlib
+- Plotted IR and red PPG signals, three-axis acceleration, and acceleration magnitude
+- Compared mean-removed IR PPG with acceleration magnitude
+
+### Results
+- Observed periodic PPG oscillations during stationary intervals
+- Simulated movement introduced additional oscillations into the PPG waveform
+- PPG distortion coincided with increased acceleration activity
+- Successfully generated and saved both visualization figures
+
+### Next Steps
+- Estimate heart rate from synthetic PPG measurements
+- Compare heart-rate estimates during stationary and moving intervals
+- Develop a motion-aware signal quality metric

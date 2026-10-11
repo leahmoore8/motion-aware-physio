@@ -120,7 +120,7 @@ motion measurements in a consistent format.
 - [ ] Handle serial disconnects and malformed packets
 - [ ] Verify recorded data integrity
 - [ ] Document acquisition workflow
-- [ ] Commit and push M4
+- [x] Commit and push M4
 
 **Deliverable:** Python application records experimental sensor
 data into CSV files for offline analysis.
@@ -131,16 +131,23 @@ data into CSV files for offline analysis.
 
 **Goal:** Visualize physiological and motion measurements.
 
+### Offline Visualization (Synthetic Data)
+- [x] Implement offline PPG visualization from recorded CSV
+- [x] Implement accelerometer magnitude calculation
+- [x] Plot acceleration magnitude over time
+- [x] Align PPG and IMU plots on common time axis
+- [x] Compare synthetic PPG distortion with IMU acceleration
+- [x] Save figures of working plots
+
+### Real-Time Visualization
 - [ ] Implement real-time PPG plotting
-- [ ] Implement accelerometer magnitude calculation
-- [ ] Plot acceleration magnitude over time
-- [ ] Add gyroscope visualization if useful
-- [ ] Align PPG and IMU plots on common time axis
 - [ ] Implement rolling visualization window
-- [ ] Verify visualization during movement
-- [ ] Capture screenshots of working plots
-- [ ] Document M5 results
-- [ ] Commit and push M5
+- [ ] Add gyroscope visualization if useful
+- [ ] Verify visualization during physical movement
+
+### Documentation
+- [x] Document M5 offline visualization results
+- [ ] Commit and push offline visualization
 
 **Deliverable:** Live visualization of physiological waveforms
 and corresponding motion measurements.
